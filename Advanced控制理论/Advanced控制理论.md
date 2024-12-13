@@ -25,8 +25,41 @@ $$
 
 1. 选择状态变量消除高阶项
 
-   取系统的状态变量为 $z_1,z_2$，令 $z_1=x，z_2=\dot{x}$，可得
+   取系统的状态变量为 $z_1,z_2$，令 $z_1=x，z_2=\dot{x}$，即 $\dot{z_1}=\dot{x}=z_2,\dot{z_2}=\ddot{x}$ ，可得
    $$
-   \dot{z_1}=\dot{x}=z_2,\dot{z_2}=\ddot{x}
+   \begin{bmatrix}
+   z_1 \\
+   z_2
+   \end{bmatrix}=
+   \begin{bmatrix}
+   0 & 1 \\
+   -\frac{k}{m} & -\frac{B}{m}
+   \end{bmatrix}
+   \begin{bmatrix}
+   z_1 \\
+   z_2
+   \end{bmatrix}+
+   \begin{bmatrix}
+   0 \\
+   \frac{1}{m}
+   \end{bmatrix}
+   \begin{bmatrix}
+   u(t)
+   \end{bmatrix} 
    $$
-   
+
+$$
+y=\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}\begin{bmatrix}
+z_1 \\
+z_2
+\end{bmatrix}+\begin{bmatrix}
+0
+\end{bmatrix}\begin{bmatrix}
+u(t)
+\end{bmatrix}
+$$
+
+​		
