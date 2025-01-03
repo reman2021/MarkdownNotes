@@ -27,6 +27,44 @@ $$
 
    取系统的状态变量为 $z_1,z_2$，令 $z_1=x，z_2=\dot{x}$，可得
    $$
-   \dot{z_1}=\dot{x}=z_2,\dot{z_2}=\ddot{x}
+   \dot{z_1}=\dot{x}=z_2,\\
+   \dot{z_2}=\ddot{x}=\frac{f(t)-c\dot{x}-kx}{m}=\frac{1}{m}u(t)-\frac{c}{m}z_{2}-\frac{k}{m}z_{1}
+   $$
+   写成状态空间方程的形式：
+   $$
+   \begin{aligned}
+   \dot{z} & =Az+Bu \\
+   y & =Cz+Du
+   \end{aligned}
+   \Rightarrow
+   \begin{aligned}
+    & 
+   \begin{bmatrix}
+   z_{1} \\
+   z_{2}
+   \end{bmatrix}=
+   \begin{bmatrix}
+   0 & 1 \\
+   -\frac{k}{m} & -\frac{B}{m}
+   \end{bmatrix}
+   \begin{bmatrix}
+   z_{1} \\
+   z_{2}
+   \end{bmatrix}+
+   \begin{bmatrix}
+   0 \\
+   \frac{1}{m}
+   \end{bmatrix}
+   \begin{bmatrix}
+   u_{t}
+   \end{bmatrix} \\
+    & y=\begin{bmatrix}
+   1&0\end{bmatrix}
+   \begin{bmatrix}
+   {z_{1}}\\{z_{2}}\end{bmatrix}+[0]
+   \begin{bmatrix}
+   u_{t}
+   \end{bmatrix} \\
+   \end{aligned}
    $$
    
