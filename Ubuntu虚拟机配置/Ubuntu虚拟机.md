@@ -83,8 +83,6 @@ VSCode 安装插件 CMake Tools。
 
 1. 下载：[Downloads | Linaro](https://www.linaro.org/downloads/)（[GNU Toolchain Integration Builds](https://snapshots.linaro.org/gnu-toolchain/?_gl=1*6okto9*_ga*NzMzMTExNTgyLjE3MTIxMzg2MTM.*_ga_E12E6FXFVK*MTcxMjc1MTQ1Mi43LjAuMTcxMjc1MTQ1Mi4wLjAuMA..)）
 
-2. 本地：[交叉编译工具链](Tool/)
-
 ```shell
 sudo mkdir /usr/local/arm
 sudo cp gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf.tar.xz /usr/local/arm/ -f
