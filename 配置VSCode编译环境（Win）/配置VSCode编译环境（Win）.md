@@ -52,7 +52,7 @@ project(HelloWorld)
 add_executable(HelloWorld src/main.c)
 ```
 
-#### lauch.json
+#### launch.json
 
 用于配置调试器。
 
@@ -115,5 +115,4 @@ add_executable(HelloWorld src/main.c)
     ]
 }
 ```
-
 
