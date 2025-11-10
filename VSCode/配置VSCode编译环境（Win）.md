@@ -375,7 +375,7 @@ Windows 路径分隔符 `\\` 不兼容 Linux/macOS，最好改成 `/`  确保跨
 
 - Python
 - flake8
-- yapf
+- Black Formatter
 
 ### 配置 Python 解释器
 
@@ -399,6 +399,7 @@ Windows 路径分隔符 `\\` 不兼容 Linux/macOS，最好改成 `/`  确保跨
 
 使用`.\venv\Scripts\activate`命令激活运行虚拟环境。
 若遇到无法禁止运行脚本的问题，需要更改安全策略：
+
 1. 以管理员身份打开 powershell
 2. 执行`set-executionpolicy remotesigned`（默认值为`Restricted`）
 3. 提示是否更改执行策略时，输入“y”并回车后即可执行脚本。
@@ -410,6 +411,7 @@ Windows 路径分隔符 `\\` 不兼容 Linux/macOS，最好改成 `/`  确保跨
 ```
 PythonTest/
 ├── .vscode
+│   └── settings.json
 ├── venv/
 ├── utils/
 │   ├── __init__.py
@@ -441,6 +443,26 @@ if __name__ == "__main__":
     test1()
     test2()
 ```
+
+#### 插件设置
+
+```json
+//settings.json
+{
+    "flake8.enabled": true,
+    "flake8.args": [
+        "--max-line-length=150",
+        "--ignore=E203,W503",
+        "--extend-ignore=E501"
+    ],
+    // 其他有用的Python配置
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "trae.chatLanguage": "cn",
+}
+```
+
+
 
 #### 调试
 
