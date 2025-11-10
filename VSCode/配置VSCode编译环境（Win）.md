@@ -1,6 +1,16 @@
+---
+tags:
+  - Note
+noteid: 20250916225644
+created: 2025-09-16 22:55:50
+type: VSCode
+---
+> **简介**
+> 在 Windows 中配置 VSCode 的编译环境，包括 C/C++、Python，并给出对应的工程示例。
+***
 ## C/C++
 
-### VSCode 拓展
+### VSCode 插件
 
 1. C/C++
 2. C/C++ Extension Pack
@@ -78,7 +88,6 @@ int main() {
 > JSON 语法是 JavaScript 语法的子集。
 >
 > JSON（JavaScript Object Notation，JavaScript对象表示法）是存储和交换文本信息的语法，类似 XML。
-
 
 
 #### 配置 tasks.json
@@ -316,7 +325,7 @@ add_executable(HelloWorld ${SRC_LIST})
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
-        "miDebuggerPath": "D:\\rewr\\mingw64\\bin\\gdb.exe",
+        "miDebuggerPath": "D:/Program Files/msys64/mingw64/bin/gdb.exe",
         "setupCommands": [
           {
             "description": "Enable pretty-printing for gdb",
@@ -353,3 +362,93 @@ Windows 路径分隔符 `\\` 不兼容 Linux/macOS，最好改成 `/`  确保跨
 [VScode环境下使用CMake构建工程_vscode cmake-CSDN博客](https://blog.csdn.net/qq_32348883/article/details/128890057)
 
 [在VScode下配置C/C++环境(tasks.json、launch.json、c_cpp_properties.json)_vscode c++ launch.json-CSDN博客](https://blog.csdn.net/m0_46610658/article/details/140450473)
+
+## Python
+
+### Python 环境安装
+
+官网下载地址：[Python Releases for Windows | Python.org](https://www.python.org/downloads/windows/)。
+下载想要的版本并安装，安装时勾选添加环境变量选项。
+验证：`Win+R`->`cmd`打开命令行->输入`python`并运行->出现版本号并进入 python 运行环境即代表安装成功。
+
+### VSCode 插件
+
+- Python
+- flake8
+- yapf
+
+### 配置 Python 解释器
+
+`Ctrl+Shift+P`->输入`Python: Select Interpreter`并选择该命令->选择想要使用的Python解释器版本。
+
+### Python 项目
+
+#### 创建虚拟环境
+
+> 在 VSCode 中使用虚拟环境是管理项目依赖的最佳实践。通过虚拟环境，你可以为每个项目隔离不同的包和依赖，避免不同项目之间的依赖冲突。
+
+1. 打开终端（`` Ctrl+` ``）进入项目目录。
+2. 使用`python -m venv venv`命令创建虚拟环境。
+
+> `python`：调用 Python 解释器。
+> `-m` ：表示要运行一个模块（module）。
+> `venv`：Python 内置的虚拟环境模块。
+> `.venv`：要创建的虚拟环境的目录名称（前面的点表示在 Unix-like 系统中这是一个隐藏目录），指定虚拟环境将被创建在当前目录下的 .venv 文件夹中。
+
+#### 激活虚拟环境
+
+使用`.\venv\Scripts\activate`命令激活运行虚拟环境。
+若遇到无法禁止运行脚本的问题，需要更改安全策略：
+1. 以管理员身份打开 powershell
+2. 执行`set-executionpolicy remotesigned`（默认值为`Restricted`）
+3. 提示是否更改执行策略时，输入“y”并回车后即可执行脚本。
+
+### 项目配置
+
+#### 项目结构
+
+```
+PythonTest/
+├── .vscode
+├── venv/
+├── utils/
+│   ├── __init__.py
+│   ├── module1.py
+│   └── module2.py
+└── main.py
+```
+
+各文件内容如下，输入代码后在 main.py 界面按 *F5* 即可运行。
+
+```python
+# utils/__init__.py
+from .module1 import test1
+from .module2 import test2
+
+# utils/module1.py
+def test1():
+    print("Hello World!")
+    
+# utils/module2.py
+def test2():
+    print("Hello World2!")
+
+# main.py
+from utils import test1
+from utils import test2
+
+if __name__ == "__main__":
+    test1()
+    test2()
+```
+
+#### 调试
+
+1. 点击“运行和调试”，点击“创建 launch.json 文件”
+2. 选择“Python Debugger”作为调试器
+3. 选择“Python 文件”进行调试配置
+4. 生成 launch.json 文件后，即可进行调试
+
+***
+## 
+最后更新于：**`=dateformat(this.file.mtime, "yyyy-M-d HH:mm")`**

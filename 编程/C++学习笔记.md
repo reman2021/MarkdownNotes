@@ -24,7 +24,7 @@ Point3d_print(&a);
 
 在C++中，可以定义一个拥有这些属性和方法的对象，并直接调用。
 
-```c++
+```cpp
 class Point3d (
 public:
     Point3d(float X,float y,float z);
@@ -48,7 +48,7 @@ a.print（）;
 >
 > 1. **跨文件共享全局变量**
 >
->    ```c++
+>    ```cpp
 >    // file1.c
 >    int global_var = 42; // 定义全局变量
 >    
@@ -59,7 +59,7 @@ a.print（）;
 >
 > 2. **在头文件中声明函数或变量**
 >
->    ```c++
+>    ```cpp
 >    // utils.h
 >    extern int MAX_SIZE; // 声明变量
 >    void print_message(); // 声明函数（函数默认是 extern 的）
@@ -73,7 +73,7 @@ a.print（）;
 >
 >    C++ 支持函数重载，编译器会修改函数名（名称修饰），而 C 语言不会。用 `extern "C"` 告诉 C++ 编译器：“这段代码按 C 的规则编译”。
 >
->    ```c++
+>    ```cpp
 >    // C++ 文件
 >    extern "C" {
 >        #include "c_library.h" // 包含 C 语言库的头文件
@@ -106,7 +106,7 @@ a.print（）;
 
    抽象类是一种特殊的类，它不能被实例化，只能作为基类。通过定义纯虚函数（`= 0`），强制派生类实现这些函数，从而实现接口的抽象。
 
-   ```c++
+   ```cpp
    class Shape {
    public:
        virtual void Draw() = 0; // 纯虚函数，强制派生类实现
@@ -126,11 +126,9 @@ a.print（）;
    }
    ```
 
-   ------
-
 ## 构造（Constructor）和析构（Destructor）
 
-```C++
+```Cpp
 //
 class X{
 private:
@@ -171,7 +169,7 @@ void main(){
 > 1. **释放内存**：将之前分配的内存归还给系统，避免内存泄漏。
 > 2. **调用析构函数**：如果释放的是对象，`delete` 会自动调用对象的析构函数。
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
